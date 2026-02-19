@@ -50,7 +50,7 @@ def train():
 
     print(f"Training RecurrentGemma on {torch.cuda.get_device_name(0)}...")
 
-    with sdpa_kernel([SDPBackend.FLASH_ATTENTION]):
+    with sdpa_kernel([SDPBackend.FLASH_ATTENTION, SDPBackend.EFFICIENT_ATTENTION]):
         trainer.train()
 
     trainer.save_model(f"{Config.output_dir}/model")
