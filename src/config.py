@@ -22,7 +22,7 @@ class Config:
     batch_size: int = 1
     grad_accum: int = 16
     learning_rate: float = 3e-4
-    epochs: int = 5
+    epochs: int = 1
     weight_decay: float = 0.01
     grad_checkpoint: bool = True
     log_steps: int = 10
