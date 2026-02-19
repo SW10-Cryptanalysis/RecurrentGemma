@@ -7,13 +7,23 @@ from config import Config
 
 
 class CipherPlainData(Dataset):
-    def __init__(self, directory_path):
-        # TODO: find out what we need here
-        pass
+    def __init__(self):
+        # TODO: here wer should load recurrence encoding first, then plaintext
+        print("Loading dataset...")
+        # TODO: overwrite below with the actual length of the dataset
+        self.data_len = 1000
+
+    def __len__(self):
+        return self.data_len
 
     def __getitem__(self, idx):
-        # TODO: Find out what we need here
-        pass
+        # TODO: Overwrite below with actual tensor data here, once we have it
+        # Below can be deleted then, it is just for testing
+        seq = torch.randint(0, Config.vocab_size, (Config.max_context,))
+        return {
+            "input_ids": seq,
+            "labels": seq.clone(),
+        }
 
 
 def train():
@@ -35,8 +45,7 @@ def train():
     trainer = Trainer(
         model=model,
         args=args,
-        # TODO: Change below to the correct path
-        train_dataset=CipherPlainData("cipher"),
+        train_dataset=CipherPlainData(),
     )
 
     print(f"Training RecurrentGemma on {torch.cuda.get_device_name(0)}...")
