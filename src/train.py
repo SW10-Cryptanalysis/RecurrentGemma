@@ -44,6 +44,7 @@ def train():
         save_steps=Config.save_steps,
         bf16=True,
         optim="adamw_torch_fused",
+        remove_unused_columns=False,
     )
 
     trainer = Trainer(
