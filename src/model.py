@@ -12,7 +12,7 @@ def get_model():
         num_hidden_layers=Config.layers,
         num_attention_heads=Config.att_heads,
         head_dim=Config.head_dim,
-        attention_window_size=Config.attention_window_size
+        attention_window_size=Config.attention_window_size,
         hidden_activation="gelu_fast",
     )
 
