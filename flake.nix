@@ -23,7 +23,7 @@
         devShells.default = with pkgs;
           mkShell {
             buildInputs = [
-              python312
+              python314
               uv
 
               cudaPkgs.cuda_nvcc
