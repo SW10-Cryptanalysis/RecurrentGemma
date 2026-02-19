@@ -3,7 +3,7 @@ from dataclasses import dataclass
 TEXT_LEN = 8_192
 UNIQUE_HOMOPHONE_COUNT = 500
 UNIQUE_LETTER_COUNT = 26
-TOTAL_SEQ = TEXT_LEN * 2
+TOTAL_SEQ = (TEXT_LEN * 2) + 1
 OUTPUT_DIR = "./outputs"
 
 

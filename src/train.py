@@ -5,6 +5,8 @@ from torch.utils.data import Dataset
 from torch.nn.attention import sdpa_kernel, SDPBackend
 from config import Config
 
+torch.backends.cuda.matmul.allow_tf32 = True
+
 
 class CipherPlainData(Dataset):
     def __init__(self):
@@ -28,6 +30,7 @@ class CipherPlainData(Dataset):
 
 def train():
     model = get_model()
+    model = torch.compile(model)
 
     args = TrainingArguments(
         output_dir=Config.output_dir,
@@ -40,6 +43,7 @@ def train():
         logging_steps=Config.log_steps,
         save_steps=Config.save_steps,
         bf16=True,
+        optim="adamw_torch_fused",
     )
 
     trainer = Trainer(
