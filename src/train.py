@@ -30,7 +30,6 @@ class CipherPlainData(Dataset):
 
 def train():
     model = get_model()
-    model = torch.compile(model)
 
     args = TrainingArguments(
         output_dir=Config.output_dir,

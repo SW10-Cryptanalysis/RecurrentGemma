@@ -12,10 +12,12 @@ def get_model():
         num_hidden_layers=Config.layers,
         num_attention_heads=Config.att_heads,
         head_dim=Config.head_dim,
-        hidden_activation="gelu",
+        attention_window_size=Config.attention_window_size
+        hidden_activation="gelu_fast",
     )
 
     model = RecurrentGemmaForCausalLM(conf)
+    model = torch.compile(model, mode="reduce-overhead")
     print("ReccurentGemma loaded!")
     print(f"Parameters:       {model.num_parameters():,}")
     print(f"VRAM for Weights: {(model.get_memory_footprint() / 1e9):.4f} GB")
