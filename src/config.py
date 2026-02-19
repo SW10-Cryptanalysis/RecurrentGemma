@@ -17,7 +17,7 @@ class Config:
     layers: int = 12
     att_heads: int = 8
     head_dim: int = 64
-    attention_window_size: int = 1024
+    attention_window_size: int = 512
 
     # TRAINING
     batch_size: int = 1
