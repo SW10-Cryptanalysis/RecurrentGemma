@@ -17,7 +17,7 @@ def get_model():
     )
 
     model = RecurrentGemmaForCausalLM(conf)
-    model = torch.compile(model, mode="reduce-overhead")
+    # model = torch.compile(model, mode="reduce-overhead")
     print("ReccurentGemma loaded!")
     print(f"Parameters:       {model.num_parameters():,}")
     print(f"VRAM for Weights: {(model.get_memory_footprint() / 1e9):.4f} GB")
