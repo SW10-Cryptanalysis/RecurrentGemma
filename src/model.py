@@ -15,7 +15,7 @@ def get_model(config: Config) -> RecurrentGemmaForCausalLM:
         vocab_size=config.vocab_size,
         max_position_embeddings=config.max_context,
         hidden_size=config.dims,
-        intermediate_size=config.dims * 4,
+        intermediate_size=config.dims * 3,
         num_hidden_layers=config.layers,
         num_attention_heads=config.att_heads,
         head_dim=config.head_dim,
@@ -27,7 +27,8 @@ def get_model(config: Config) -> RecurrentGemmaForCausalLM:
         eos_token_id=config.eos_token_id,
         # Activation & flash
         hidden_activation="gelu_fast",
-        attn_implmentation="flash_attention_2",
+        attn_implementation="flash_attention_2",
+        rnn_hidden_size=config.dims * 4,
         use_cache=False,
     )
 
