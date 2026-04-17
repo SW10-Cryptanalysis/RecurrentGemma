@@ -23,7 +23,7 @@
         devShells.default = with pkgs;
           mkShell {
             buildInputs = [
-              python314
+              python312
               uv
               ruff
 
