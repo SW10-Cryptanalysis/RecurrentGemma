@@ -49,7 +49,6 @@ export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
 if [ ! -d ".venv" ]; then
     uv sync
     uv pip install --python 3.12 -e .
-    uv pip install --python 3.12 https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
 fi
 
 MASTER_PORT=$((10000 + $RANDOM % 20000))

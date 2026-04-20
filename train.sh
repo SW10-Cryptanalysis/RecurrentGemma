@@ -44,13 +44,8 @@ uv pip install -e .
 # Install hf_transfer to enable faster Hugging Face downloads
 uv pip install hf_transfer
 
-# 5. Flash Attention 2 Installation
-echo "Installing Flash Attention 2..."
-uv pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.9.0/flash_attn-2.8.3+cu130torch2.10-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
-
 MASTER_PORT=$((10000 + $RANDOM % 20000))
 
-# 6. Launch Training
 echo "Launching torchrun with $NUM_GPUS processes..."
 uv run torchrun \
     --nproc_per_node=$NUM_GPUS \

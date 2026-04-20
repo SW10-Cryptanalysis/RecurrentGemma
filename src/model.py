@@ -27,7 +27,7 @@ def get_model(config: Config) -> RecurrentGemmaForCausalLM:
         eos_token_id=config.eos_token_id,
         # Activation & flash
         hidden_activation="gelu_fast",
-        attn_implementation="flash_attention_2",
+        attn_implementation="sdpa",
         rnn_hidden_size=config.dims * 4,
         use_cache=False,
     )
